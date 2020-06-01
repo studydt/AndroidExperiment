@@ -2,6 +2,36 @@
 
 ## First Semester
 
+### experiment1
+
+按钮监听测试
+
+#### 实验内容
+
+1. 建立一个Project， 包含App,Activity和对应的布局文件；
+2. 创建模拟器，启动模拟器，编译运行应用程序；
+3. 修改“Hello World！”为“我的第一个App！”；
+4. 在Activity的底部中央添加一个按钮， 按钮上显示“测试”， 点击按钮后用Toast显示“测试成功！”。
+
+#### 界面展示
+
+![experiment1](FirstSemester/img/experiment1.png)
+
+### experiment2
+
+观察生命周期
+
+#### 实验内容
+
+1. 建立一个Android Project, Activity名称为MainActivity, 设法观察全生命周期、可视生命周期和活动生命周的各个回调函数的回调时机和顺序；
+2. 添加SecondActivity，并在MainActivity中添加按钮，点击后打开SecondActivity，观察2个Activity切换时各回调函数的回调情况；
+3. 添加ThirdActivity，并在SecondActivity中添加按钮，点击后打开ThirdActivity，观察3个Activity切换时各回调函数的回调情况；
+4. 先后修改SecondActivity和ThirdActivity的风格为对话框模式，观察3个Activity切换时各回调函数的回调情况。
+
+#### 界面展示
+
+![experiment2](FirstSemester/img/experiment2.png)
+
 ## Second Semester
 
 ### experiment1
