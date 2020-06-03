@@ -32,6 +32,53 @@
 
 ![experiment2](FirstSemester/img/experiment2.png)
 
+### experiment3
+
+音乐列表
+
+#### 实验内容
+
+
+1. 继承BaseAdapter之后，需要重写以下四个方法：getCount，getItem，getItemId，getView。
+2. 先 getCount() 获取Item 的个数。 每绘制一次就调用一次getView() 方法，在getView 中将事先定义好的layout布局确定显示的效果并返回一个View对象作为一个Item 显示出来。
+3. getItem() getItemId() 调用ListView 的响应的方法的时候调用到。
+4. 创建一个listView item
+5. 主要重写Adpter的 getCount() 。和getView() 方法
+
+#### 界面展示
+
+![experiment3](FirstSemester/img/experiment3.png)
+
+### experiment4
+
+简单计算器
+
+#### 实验内容
+
+1. 设计一个简单的计算器的界面布局；
+2. 实现四则混合运算，如2+3*4-5=9。
+
+#### 界面展示
+
+![experiment4](FirstSemester/img/experiment4.png)
+
+### experiment5
+
+触摸监听
+
+#### 实验内容
+
+1. 实现触摸处理
+   1. 为Activity添加触摸监听处理；
+   2. 在OnTouch中通过MotionEvent判断触摸事件类型
+   3. 自己设计算法判断：手指在屏幕上进行上下左右滑动时，并且达到一定的速度和距离，识别出“上划”“下划”“左划”“右划”等简单的手势动作；
+2. 利用GestureDetector再次实现上述简单的手势识别
+手指在屏幕上进行上下左右滑动时，并且达到一定的速度和距离，用Toast显示“上划”“下划”“左划”“右划”。
+
+#### 界面展示
+
+![experiment5](FirstSemester/img/experiment5.png)
+
 ## Second Semester
 
 ### experiment1
