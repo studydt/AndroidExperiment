@@ -1,9 +1,9 @@
-package com.example.experiment2;
+package com.example.experiment2.Bean;
 
 import java.io.Serializable;
 
 public class Student implements Serializable {
-    int id;
+    public int id;
     private String Name;
     private int Age;
     private float Length;

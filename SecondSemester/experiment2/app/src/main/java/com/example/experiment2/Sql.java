@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
+import com.example.experiment2.Bean.Student;
 
 public class Sql {
     private final Context context;
@@ -48,29 +49,30 @@ public class Sql {
         cv.put(KEY_LENGTH, s.getLength());
         return db.insert(DB_TABLE, null, cv);
     }
-    //查询所有的数据
-    public Student[] findAllStudent() {
-        Cursor c = db.query(DB_TABLE, null, null, null, null,null, null);
-        return  convertToStudent(c);
-    }
+
     public long deleteAllStudent() {
         return db.delete(DB_TABLE, null, null);
     }
     //这种方发比较好能够防止sql注入
-    public long deleteByName(String Name) {
-        return db.delete(DB_TABLE, "Name=?", new String[]{Name});
+    public long deleteById(String Id) {
+        return db.delete(DB_TABLE, "Id=?", new String[]{Id});
     }
 
-    public long updateOneStudentByName(String name, Student s) {
+    public long updateOneStudentById(String Id, Student s) {
         ContentValues cv = new ContentValues();
         cv.put(KEY_NAME,s.getName() );
         cv.put(KEY_AGE, s.getAge());
         cv.put(KEY_LENGTH, s.getLength());
 
-        return db.update(DB_TABLE, cv, "Name="+name, null);
+        return db.update(DB_TABLE, cv, "Id="+Id, null);
     }
-    public Student[] findOneStudentByName(String name) {
-        Cursor c = db.query(DB_TABLE, null, "Name="+name, null, null, null, null);
+    //查询所有的数据
+    public Student[] findAllStudent() {
+        Cursor c = db.query(DB_TABLE, null, null, null, null,null, null);
+        return  convertToStudent(c);
+    }
+    public Student[] findOneStudentById(String id) {
+        Cursor c = db.query(DB_TABLE, null, "Id="+id, null, null, null, null);
         return convertToStudent(c);
     }
     //转换函数
@@ -101,6 +103,7 @@ public class Sql {
             super(context, name, factory, version);
             // TODO Auto-generated constructor stub
         }
+
         private static final String SQL="CREATE TABLE studentinfo ("
                 + "id INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "Name TEXT,"

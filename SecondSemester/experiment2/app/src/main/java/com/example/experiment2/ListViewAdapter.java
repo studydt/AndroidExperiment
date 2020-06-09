@@ -1,12 +1,13 @@
 package com.example.experiment2;
 
-import android.app.ListActivity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import com.example.experiment2.Bean.Student;
+import com.example.experiment2.Bean.ViewHolder;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,9 +24,16 @@ public class ListViewAdapter extends BaseAdapter {
 
     public List<Map<String, Object>> getData(Student[] students) {
         list = new ArrayList<Map<String, Object>>();
-        Map map = new HashMap<String, Object>();
-
+        if (students == null){
+            Map map = new HashMap<String, Object>();
+            map.put("id",null);
+            map.put("name", null);
+            map.put("age", null);
+            map.put("length", null);
+            return list;
+        }
         for (Student student : students) {
+            Map map = new HashMap<String, Object>();
             map.put("id",student.getId());
             map.put("name", student.getName());
             map.put("age", student.getAge());

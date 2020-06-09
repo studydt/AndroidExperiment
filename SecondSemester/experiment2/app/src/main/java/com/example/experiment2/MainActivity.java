@@ -13,7 +13,7 @@ import java.util.Map;
 
 public class MainActivity extends ListActivity {
     private Sql sql;
-    private EditText name, age, length;
+    private EditText name, age, length,id;
     private ListView listView;
     private Button add, delete, update, select;
     private ListViewAdapter listViewAdapter;
@@ -22,22 +22,23 @@ public class MainActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        name = (EditText) findViewById(R.id.editName);
-        age = (EditText) findViewById(R.id.editAge);
-        length = (EditText) findViewById(R.id.editLength);
+        name =findViewById(R.id.editName);
+        age = findViewById(R.id.editAge);
+        length = findViewById(R.id.editLength);
+        id  = findViewById(R.id.editId);
 
-        add = (Button) findViewById(R.id.Add);
-        delete = (Button) findViewById(R.id.Delete);
-        update = (Button) findViewById(R.id.Update);
-        select = (Button) findViewById(R.id.Select);
+        add =findViewById(R.id.Add);
+        delete = findViewById(R.id.Delete);
+        update = findViewById(R.id.Update);
+        select = findViewById(R.id.Select);
 
-        listView = (ListView) findViewById(android.R.id.list);
+        listView = findViewById(android.R.id.list);
         sql = new Sql(this);
 
         listViewAdapter = new ListViewAdapter(this);
         listView.setAdapter(listViewAdapter);
 
-        ClickListener clickListener = new ClickListener(this, sql, name, age, length,listViewAdapter);
+        ClickListener clickListener = new ClickListener(this, sql, name, age, length,id,listViewAdapter);
         add.setOnClickListener(clickListener);
         delete.setOnClickListener(clickListener);
         update.setOnClickListener(clickListener);
@@ -50,6 +51,7 @@ public class MainActivity extends ListActivity {
         super.onListItemClick(l, v, position, id);
         Toast.makeText(this, "选中成功", Toast.LENGTH_LONG).show();
         List<Map<String, Object>> list = listViewAdapter.getList();
+        this.id.setText(String.valueOf(list.get(position).get("id")));
         name.setText((String) list.get(position).get("name"));
         age.setText(String.valueOf(list.get(position).get("age")));
         length.setText(String.valueOf(list.get(position).get("length")));

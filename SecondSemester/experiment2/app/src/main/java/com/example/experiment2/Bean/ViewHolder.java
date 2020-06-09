@@ -1,4 +1,4 @@
-package com.example.experiment2;
+package com.example.experiment2.Bean;
 
 import android.widget.TextView;
 
@@ -8,7 +8,7 @@ public class ViewHolder {
     public TextView Tage;
     public TextView Tlength;
 
-    ViewHolder(TextView Tid, TextView Tname, TextView Tage, TextView Tlength) {
+    public ViewHolder(TextView Tid, TextView Tname, TextView Tage, TextView Tlength) {
         this.Tid = Tid;
         this.Tname = Tname;
         this.Tage = Tage;
